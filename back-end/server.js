@@ -1,3 +1,4 @@
+// ************** Example of working with server in node without express *********
 const http = require("http");
 const fs = require("fs");
 const _ = require("lodash");
@@ -29,7 +30,18 @@ const server = http.createServer((req, res) => {
   // res.end();
 
   // creating response of html from html file
+  // version1
+  // fs.readFile("./front-end/index.html", (error, data) => {
+  //   if (error) {
+  //     console.log(error);
+  //     res.end();
+  //   }
+  //   // res.write(data);
+  //   // res.end();
+  //   res.end(data);
+  // });
 
+  // version2
   let path = "./front-end/";
   switch (req.url) {
     case "/":
