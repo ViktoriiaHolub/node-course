@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const morgan = require("morgan");
 
 // express app
 const app = express();
@@ -10,6 +11,19 @@ app.set("views", path.join(__dirname, "front-end"));
 
 // listen for request
 app.listen(3000);
+
+app.use(morgan("short"));
+
+app.use(express.static("public"));
+
+// app.use((req, res, next) => {
+//   console.log("new request made");
+//   console.log(req.hostname);
+//   console.log(req.path);
+//   console.log(req.method);
+
+//   next();
+// });
 
 app.get("/", (req, res) => {
   const blogs = [
@@ -26,7 +40,7 @@ app.get("/", (req, res) => {
       snippet: "Snippet from the third article.",
     },
   ];
-  res.render("index", {title: 'Home', blogs});
+  res.render("index", { title: "Home", blogs });
 });
 
 app.get("/about", (req, res) => {
