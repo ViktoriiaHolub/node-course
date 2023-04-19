@@ -9,11 +9,14 @@
 
     <div class="blogs content">
       <h2>All Blogs</h2>
-      <p>Blog <%= name %> (name from variable)</p>
-
+      <h3>Blog <%= name %> (name from variable)</h3>
+      <br />
       <% if (blogs.length > 0) { %> <% blogs.forEach((blog) => { %>
-      <h3 class="title"><%= blog.title %></h3>
-      <p class="snippet"><%= blog.snippet %></p>
+      <a class="single" href="/blogs/<%= blog._id %>">
+        <h3 class="title"><%= blog.title %></h3>
+        <p class="snippet"><%= blog.snippet %></p>
+      </a>
+      <br />
       <% }) %> <%} else {%>
       <p>There are no blogs to display ....</p>
       <% } %>
