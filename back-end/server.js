@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
   // });
 
   // version2
-  let path = "./front-end/";
+  let path = "./views/";
   switch (req.url) {
     case "/":
       path += "index.html";
